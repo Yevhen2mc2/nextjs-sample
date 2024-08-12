@@ -16,3 +16,18 @@ Build production:
 ```bash
 yarn build
 ```
+
+---
+
+## Run Bundle Analyzer
+
+```bash
+ANALYZE=true yarn build
+```
+
+Or manually set in the file ```.env.local``` value `ANALYZE=true` and do:
+```bash
+yarn build
+```
+
+The report will open three new tabs in your browser, which you can inspect.
