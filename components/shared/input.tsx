@@ -20,12 +20,12 @@ const Input = ({
   return (
     <div className={"flex w-full flex-col"}>
       {label ? (
-        <label className={"text-sm"} htmlFor={id}>
+        <label className={"text-sm font-medium"} htmlFor={id}>
           {label}
         </label>
       ) : null}
       <input
-        className={"rounded border border-sky-950"}
+        className={"rounded border border-sky-950 px-1 py-2"}
         disabled={disabled}
         id={id}
         type={type}

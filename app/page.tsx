@@ -1,6 +1,6 @@
 import Hero from "@/components/home/hero";
-import ClientForm from "@/components/home/client-form";
 import type { Metadata } from "next";
+import Auth from "@/components/auth/auth";
 
 export const metadata: Metadata = {
   title: "NextJS Project",
@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <main>
       <Hero />
-      <ClientForm />
+      <Auth />
     </main>
   );
 };
