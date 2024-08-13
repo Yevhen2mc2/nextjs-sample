@@ -3,6 +3,7 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import Input from "@/components/shared/input";
 import { loginUser } from "@/drizzle/auth-utils";
+import { useSession } from "next-auth/react";
 
 interface IForm {
   email: string;
@@ -10,6 +11,8 @@ interface IForm {
 }
 
 const LoginForm = () => {
+  const { update } = useSession();
+
   const { register, handleSubmit } = useForm<IForm>({
     defaultValues: {
       email: "",
@@ -19,6 +22,7 @@ const LoginForm = () => {
 
   const onSubmit: SubmitHandler<IForm> = async (data) => {
     await loginUser(data.email, data.password);
+    await update();
   };
 
   return (
