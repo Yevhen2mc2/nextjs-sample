@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .button-blue {
+        @apply w-full bg-sky-700 text-white hover:bg-sky-600 py-2 px-4 rounded transition-colors
+    }
+}

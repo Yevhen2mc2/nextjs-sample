@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ReactNextImage from "@/public/images/home/react-next.png";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -15,11 +16,17 @@ const Hero = () => {
         </p>
       </div>
 
-      <Image
-        className={"mt-6 w-screen max-w-96"}
-        src={ReactNextImage}
-        alt={"React and NextJs logo"}
-      />
+      <div className={"max-w-96"}>
+        <Image
+          className={"mt-6 w-screen"}
+          src={ReactNextImage}
+          alt={"React and NextJs logo"}
+        />
+
+        <Link className={"button-blue mt-2 block"} href={"/1"}>
+          Open Post 1
+        </Link>
+      </div>
     </section>
   );
 };

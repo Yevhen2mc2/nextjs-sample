@@ -54,10 +54,7 @@ const LoginForm = () => {
         })}
       />
 
-      <button
-        className={"mt-6 rounded bg-sky-700 p-2 px-4 text-white"}
-        type={"submit"}
-      >
+      <button className={"button-blue mt-4"} type={"submit"}>
         Login
       </button>
     </form>
