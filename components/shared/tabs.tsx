@@ -15,12 +15,17 @@ const Tabs = ({ tabs }: IProps) => {
     <TabGroup>
       <TabList className={"flex justify-around"}>
         {tabs.map((tab) => (
-          <Tab className={"data-[selected]:underline"} key={tab.title}>
+          <Tab
+            className={
+              "w-full rounded p-2 text-sm outline-none data-[selected]:bg-sky-50"
+            }
+            key={tab.title}
+          >
             {tab.title}
           </Tab>
         ))}
       </TabList>
-      <TabPanels>
+      <TabPanels className={"mt-1"}>
         {tabs.map((tab) => (
           <TabPanel key={tab.title}>{tab.element}</TabPanel>
         ))}
