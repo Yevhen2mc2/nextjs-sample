@@ -3,6 +3,7 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import Input from "@/components/shared/input";
 import { createUserAccount } from "@/drizzle/auth-utils";
+import { toast } from "react-toastify";
 
 interface IForm {
   email: string;
@@ -22,7 +23,9 @@ const CreateAccountForm = () => {
   });
 
   const onSubmit: SubmitHandler<IForm> = async (data) => {
-    await createUserAccount(data.email, data.password);
+    const error = await createUserAccount(data.email, data.password);
+    if (error) toast.error(error);
+    else toast.success("Account created successfully");
   };
 
   return (

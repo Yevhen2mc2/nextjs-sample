@@ -1,4 +1,3 @@
-"use client";
 import LoginForm from "@/components/auth/login-form";
 import CreateAccountForm from "@/components/auth/create-account-form";
 import Tabs from "@/components/shared/tabs";
