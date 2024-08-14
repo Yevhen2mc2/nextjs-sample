@@ -7,6 +7,7 @@ interface IProps {
   disabled?: boolean;
   type?: HTMLInputTypeAttribute;
   register?: UseFormRegisterReturn<any>;
+  error?: string;
 }
 
 const Input = ({
@@ -14,6 +15,7 @@ const Input = ({
   disabled = false,
   type = "text",
   register,
+  error,
 }: IProps) => {
   const id = label?.toLowerCase().replace(/ /g, "-");
 
@@ -31,6 +33,7 @@ const Input = ({
         type={type}
         {...register}
       />
+      <p className={"h-4 text-sm text-red-800"}>{error ? error : ""}</p>
     </div>
   );
 };

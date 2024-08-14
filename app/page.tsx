@@ -1,6 +1,7 @@
 import Hero from "@/components/home/hero";
 import type { Metadata } from "next";
 import Auth from "@/components/auth/auth";
+import { auth } from "@/auth";
 
 export const metadata: Metadata = {
   title: "NextJS Project",
@@ -8,11 +9,13 @@ export const metadata: Metadata = {
     "This site is designed to demonstrate the use of various technologies",
 };
 
-const Home = () => {
+const Home = async () => {
+  const session = await auth();
+
   return (
     <main>
       <Hero />
-      <Auth />
+      <Auth session={session} />
     </main>
   );
 };

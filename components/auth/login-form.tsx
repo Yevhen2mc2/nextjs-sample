@@ -3,7 +3,7 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import Input from "@/components/shared/input";
 import { loginUser } from "@/drizzle/auth-utils";
-import { useSession } from "next-auth/react";
+import { toast } from "react-toastify";
 
 interface IForm {
   email: string;
@@ -11,9 +11,11 @@ interface IForm {
 }
 
 const LoginForm = () => {
-  const { update } = useSession();
-
-  const { register, handleSubmit } = useForm<IForm>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IForm>({
     defaultValues: {
       email: "",
       password: "",
@@ -21,8 +23,9 @@ const LoginForm = () => {
   });
 
   const onSubmit: SubmitHandler<IForm> = async (data) => {
-    await loginUser(data.email, data.password);
-    await update();
+    const success = await loginUser(data.email, data.password);
+    if (success) window.location.reload();
+    else toast.error("Incorrect email or password");
   };
 
   return (
@@ -35,12 +38,20 @@ const LoginForm = () => {
       <Input
         label={"Email"}
         type={"email"}
+        error={errors.email?.message}
         register={register("email", { required: "Required" })}
       />
       <Input
         label={"Password"}
         type={"password"}
-        register={register("password", { required: "Required" })}
+        error={errors.password?.message}
+        register={register("password", {
+          required: "Required",
+          minLength: {
+            value: 4,
+            message: "Min length is 4",
+          },
+        })}
       />
 
       <button

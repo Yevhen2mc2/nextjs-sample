@@ -10,7 +10,11 @@ interface IForm {
 }
 
 const CreateAccountForm = () => {
-  const { register, handleSubmit } = useForm<IForm>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IForm>({
     defaultValues: {
       email: "",
       password: "",
@@ -31,12 +35,20 @@ const CreateAccountForm = () => {
       <Input
         label={"Email"}
         type={"email"}
+        error={errors.email?.message}
         register={register("email", { required: "Required" })}
       />
       <Input
         label={"Password"}
         type={"password"}
-        register={register("password", { required: "Required" })}
+        error={errors.password?.message}
+        register={register("password", {
+          required: "Required",
+          minLength: {
+            value: 4,
+            message: "Min length is 4",
+          },
+        })}
       />
 
       <button

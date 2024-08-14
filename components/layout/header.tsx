@@ -21,7 +21,7 @@ const Header = async () => {
             await signOut();
           }}
         >
-          <button className={"rounded bg-white p-2 text-sky-800"}>
+          <button className={"rounded bg-white p-1 text-sky-800"}>
             Logout
           </button>
         </form>

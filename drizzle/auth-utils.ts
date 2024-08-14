@@ -26,17 +26,19 @@ export const createUserAccount = async (email: string, password: string) => {
   return error;
 };
 
-export const loginUser = async (email: string, password: string) => {
+export const loginUser = async (
+  email: string,
+  password: string,
+): Promise<boolean> => {
   try {
     const result = await signIn("credentials", {
       redirect: false,
       email,
       password,
     });
-    if (result) {
-      console.log("login result:", result);
-    }
-  } catch (err) {
-    console.error("login error", err);
+    return !!result;
+  } catch (error) {
+    console.log("login error", error);
+    return false;
   }
 };
