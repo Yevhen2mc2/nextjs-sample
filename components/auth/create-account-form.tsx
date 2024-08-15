@@ -16,6 +16,7 @@ const CreateAccountForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<IForm>({
     defaultValues: {
       email: "",
@@ -26,7 +27,10 @@ const CreateAccountForm = () => {
   const onSubmit: SubmitHandler<IForm> = async (data) => {
     const error = await createUserAccount(data.email, data.password);
     if (error) toast.error(error);
-    else toast.success("Account created successfully");
+    else {
+      toast.success("Account created successfully");
+      reset();
+    }
   };
 
   return (
