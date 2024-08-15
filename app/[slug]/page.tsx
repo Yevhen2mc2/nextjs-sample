@@ -28,26 +28,20 @@ const Home = async ({ params }: IProps) => {
         Post {params.slug}
       </h1>
 
-      <div>
-        <p className={"mt-2 max-w-96 text-sm"}>
+      <div className={"flex max-w-96 flex-col gap-2 text-sm"}>
+        <p>
           All pages of this segment work on the SSG. All data is known at build
           time, so we can generate static files while building the project
         </p>
 
-        <p className={"mt-2 max-w-96 text-sm"}>
-          All meta-information is also generated during project build
-        </p>
+        <p>All meta-information is also generated during project build</p>
       </div>
 
       <div className={"mt-10"}>
         {posts.map((_, index) => {
           if (+params.slug === index) return null;
           return (
-            <Link
-              className={"mt-1 block w-fit text-sky-700 hover:underline"}
-              key={index}
-              href={`/${index}`}
-            >
+            <Link className={"link mt-1"} key={index} href={`/${index}`}>
               Post {index}
             </Link>
           );
