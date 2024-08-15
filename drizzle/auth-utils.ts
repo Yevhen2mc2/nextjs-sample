@@ -1,6 +1,6 @@
 "use server";
 import { signIn } from "@/auth";
-import { createUser, getUser } from "@/drizzle/users";
+import { db } from "@/drizzle/users";
 
 export const createUserAccount = async (email: string, password: string) => {
   enum SignUpError {
@@ -9,15 +9,15 @@ export const createUserAccount = async (email: string, password: string) => {
   }
 
   let error: SignUpError | null = null;
-  const user = await getUser(email);
+  const user = await db.getUser(email);
 
-  if (user.length > 0) {
+  if (user) {
     error = SignUpError.accountExist;
     return error;
   }
 
   try {
-    await createUser(email, password);
+    await db.createUser(email, password);
   } catch (e) {
     console.error("Create user account error:", e);
     error = SignUpError.serverError;
@@ -38,7 +38,7 @@ export const loginUser = async (
     });
     return !!result;
   } catch (error) {
-    console.log("login error", error);
+    console.error("login error", error);
     return false;
   }
 };
