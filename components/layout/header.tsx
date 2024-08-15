@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { auth, signOut } from "@/auth";
+import Button from "@/components/shared/button";
 
 const Header = async () => {
   const session = await auth();
@@ -21,9 +22,9 @@ const Header = async () => {
             await signOut();
           }}
         >
-          <button className={"rounded bg-white p-1 text-sky-800"}>
+          <Button variant={"secondary"} type={"submit"} className={"py-1"}>
             Logout
-          </button>
+          </Button>
         </form>
       ) : null}
     </header>

@@ -23,7 +23,7 @@ const Hero = () => {
           alt={"React and NextJs logo"}
         />
 
-        <Link className={"button-blue mt-2 block"} href={"/1"}>
+        <Link className={"button-primary mt-2 block"} href={"/1"}>
           Open Post 1
         </Link>
       </div>

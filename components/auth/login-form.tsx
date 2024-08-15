@@ -4,6 +4,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import Input from "@/components/shared/input";
 import { loginUser } from "@/drizzle/auth-utils";
 import { toast } from "react-toastify";
+import Button from "@/components/shared/button";
 
 interface IForm {
   email: string;
@@ -54,9 +55,9 @@ const LoginForm = () => {
         })}
       />
 
-      <button className={"button-blue mt-4"} type={"submit"}>
+      <Button className={"mt-4"} type={"submit"}>
         Login
-      </button>
+      </Button>
     </form>
   );
 };

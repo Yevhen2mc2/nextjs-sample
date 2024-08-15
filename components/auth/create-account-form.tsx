@@ -4,6 +4,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import Input from "@/components/shared/input";
 import { createUserAccount } from "@/drizzle/auth-utils";
 import { toast } from "react-toastify";
+import Button from "@/components/shared/button";
 
 interface IForm {
   email: string;
@@ -54,9 +55,9 @@ const CreateAccountForm = () => {
         })}
       />
 
-      <button className={"button-blue mt-4"} type={"submit"}>
+      <Button className={"mt-4"} type={"submit"}>
         Create Account
-      </button>
+      </Button>
     </form>
   );
 };

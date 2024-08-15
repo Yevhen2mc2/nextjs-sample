@@ -22,7 +22,8 @@
     "react-dom": "^18",
     "react-hook-form": "^7.52.2",
     "react-toastify": "^10.0.5",
-    "server-only": "^0.0.1"
+    "server-only": "^0.0.1",
+    "tailwind-merge": "^2.5.2"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
