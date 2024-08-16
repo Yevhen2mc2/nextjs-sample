@@ -18,7 +18,7 @@ const Hero = () => {
 
       <div className={"max-w-96"}>
         <Image
-          className={"mt-6 w-screen"}
+          className={"mt-6 w-full"}
           src={ReactNextImage}
           alt={"React and NextJs logo"}
         />
