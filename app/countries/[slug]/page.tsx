@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { getCountries, ICountry } from "@/components/countries/countries-api";
+import { ArrowLeft } from "lucide-react";
 
 export const dynamicParams = false;
 
@@ -72,8 +73,12 @@ const Home = async ({ params }: IProps) => {
           <p>All meta-information is also generated during project build.</p>
         </aside>
 
-        <Link href={"/countries"} className={"button-primary mt-8 block w-fit"}>
-          Back to countries list
+        <Link
+          href={"/countries"}
+          className={"button-primary mt-8 flex w-fit gap-2"}
+        >
+          <ArrowLeft />
+          <span>Back to countries list</span>
         </Link>
       </div>
     </main>
