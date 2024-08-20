@@ -1,9 +1,7 @@
 import Link from "next/link";
 import { getCountries } from "@/components/countries/countries-api";
 
-export const dynamicParams = false;
-
-const Home = async () => {
+const Countries = async () => {
   const countries = await getCountries();
 
   return (
@@ -31,4 +29,4 @@ const Home = async () => {
   );
 };
 
-export default Home;
+export default Countries;
