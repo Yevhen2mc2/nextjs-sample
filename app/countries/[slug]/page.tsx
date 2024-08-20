@@ -46,13 +46,15 @@ const Home = async ({ params }: IProps) => {
         </h1>
 
         {country?.flag ? (
-          <Image
-            width={450}
-            height={400}
-            className={"mx-auto mt-2"}
-            src={country?.flag}
-            alt={`Flag of ${country.officialName}`}
-          />
+          <div className="relative h-64 w-full">
+            <Image
+              layout="fill"
+              objectFit="contain"
+              className={"mx-auto mt-2"}
+              src={country?.flag}
+              alt={`Flag of ${country.officialName}`}
+            />
+          </div>
         ) : null}
 
         <div className={"mt-4 font-medium"}>
