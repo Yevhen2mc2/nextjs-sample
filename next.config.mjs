@@ -1,12 +1,23 @@
-import NextBundleAnalyzer from '@next/bundle-analyzer'
+import NextBundleAnalyzer from "@next/bundle-analyzer";
 
 const withBundleAnalyzer = NextBundleAnalyzer({
-    enabled: process.env.ANALYZE === 'true',
-})
+  enabled: process.env.ANALYZE === "true",
+});
 
 /** @type {import('next').NextConfig} */
-let nextConfig = {}
+let nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "flagcdn.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
+  },
+};
 
-nextConfig = withBundleAnalyzer(nextConfig)
+nextConfig = withBundleAnalyzer(nextConfig);
 
 export default nextConfig;
